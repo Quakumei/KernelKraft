@@ -1,0 +1,5 @@
+modinfo - посмотреть данные  о лицензировании и не только
+/proc/modules - список загруженныхмодулей
+build  command: make -C /lib/modules/`uname -r`/build M=$PWD
+install module: insmod module.ko
+remove module: rmmod module.ko
