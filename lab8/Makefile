@@ -1,8 +1,13 @@
 obj-m += chardev.o
 
+
 all:
 	make -C /lib/modules/`uname -r`/build M=`pwd` modules
 
+char_dev_reload:
+	sudo rm char_dev
+	sudo mknod char_dev c 100 0
+	sudo chmod a+w char_dev
 clean:
 	make -C /lib/modules/`uname -r`/build M=`pwd` clean
 
@@ -13,6 +18,7 @@ load:
 unload:
 	rmmod chardev
 	dmesg -c | tail
-
+test:
+	make && sudo make unload && sudo make load && make char_dev_reload && echo cock > char_dev && cat char_dev && echo direction forward > char_dev && cat char_dev && echo direction back > char_dev && cat char_dev
 run_ioctl:
 	gcc ioctl.c -o ioctl.exe && ./ioctl.exe

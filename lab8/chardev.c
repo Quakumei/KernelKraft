@@ -10,6 +10,8 @@
 #define DEVICE_NAME "char_dev"
 #define BUF_LEN 80
 #define DEBUG
+#define COMMAND_BACK "direction back"
+#define COMMAND_FORWARD "direction forward"
 /*
 * Is the device open right now? Used to prevent
 * concurent access into the same device
@@ -27,6 +29,11 @@ static char Message[BUF_LEN];
 * buffer we get to fill in device_read.
 */
 static char *Message_Ptr;
+/*
+ * Decides whether to reverse output or not when reading from
+ * char_dev. 
+ */
+static bool reverse_output_on_read = false;
 /*
 * This is called whenever a process attempts to open the device file
 */
@@ -86,7 +93,17 @@ return 0;
 /*
 * Actually put the data into the buffer
 */
-while (length && *Message_Ptr) {
+#ifdef DEBUG
+printk(KERN_INFO "reverse_output_on_read: %d\n", reverse_output_on_read);
+#endif
+
+if (reverse_output_on_read)
+	while (length && *(Message_Ptr)) {
+		
+		put_user(*(length+Message_Ptr--), buffer++);
+		length--;
+		bytes_read++;
+	} else while (length && *Message_Ptr) {
 /*
 * Because the buffer is in the user data segment,
 * not the kernel data segment, assignment wouldn't
@@ -94,10 +111,12 @@ while (length && *Message_Ptr) {
 * copies data from the kernel data segment to the
 * user data segment.
 */
-put_user(*(Message_Ptr++), buffer++);
-length--;
-bytes_read++;
-}
+ 
+		put_user(*(Message_Ptr++), buffer++);
+		length--;
+		bytes_read++;
+	}
+
 #ifdef DEBUG
 printk(KERN_INFO "Read %d bytes, %d left\n", bytes_read, length);
 #endif
@@ -115,17 +134,55 @@ static ssize_t
 device_write(struct file *file,
 const char __user * buffer, size_t length, loff_t * offset)
 {
-int i;
+int i = 0;
 #ifdef DEBUG
 printk(KERN_INFO "device_write(%p,%s,%d)", file, buffer, length);
 #endif
-for (i = 0; i < length && i < BUF_LEN; i++)
-get_user(Message[i], buffer + i);
+if (buffer[0]==COMMAND_FORWARD[0])
+{	
+	bool status = false;
+	printk(KERN_INFO "Attempt to change to forward");
+	for(i = 1; i < length -1; i++) {
+		if (buffer[i]==COMMAND_FORWARD[i]){
+			status = true;
+		} else {
+			status = false;
+		}
+	}
+	if (status){
+		reverse_output_on_read = false;
+		printk(KERN_INFO "Changed direction: %d", reverse_output_on_read);
+		return length;
+	} else if (buffer[0]==COMMAND_BACK[0])
+	{
+		bool status = false;
+		printk(KERN_INFO "Attempt to change to back");
+		for(i = 1; i < length -1; i++) {
+			if (buffer[i]==COMMAND_BACK[i]){
+				status = true;
+			} else {
+				status = false;
+			}
+		}
+		if (status)
+		{
+			reverse_output_on_read = true;
+			printk(KERN_INFO "Changed direction: %d", reverse_output_on_read);
+			return length;
+		}
+	}
+}		
+for (i = 0; i < length && i < BUF_LEN; i++){ 
+	get_user(Message[i], buffer + i);
+}
 Message_Ptr = Message;
+return i;
+		
+
 /*
 * Again, return the number of input characters used
 */
-return i;
+
 }
 /*
 * This function is called whenever a process tries to do an ioctl on our

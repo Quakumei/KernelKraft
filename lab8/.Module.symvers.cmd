@@ -1,1 +1,0 @@
-cmd_/home/qkmei/Code/KernelKraft/lab8/Module.symvers := sed 's/\.ko$$/\.o/' /home/qkmei/Code/KernelKraft/lab8/modules.order | scripts/mod/modpost  -a  -o /home/qkmei/Code/KernelKraft/lab8/Module.symvers -e -i Module.symvers  -N -T -

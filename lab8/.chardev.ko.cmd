@@ -1,1 +1,0 @@
-cmd_/home/qkmei/Code/KernelKraft/lab8/chardev.ko := ld -r -m elf_x86_64 --build-id=sha1  -T scripts/module.lds -o /home/qkmei/Code/KernelKraft/lab8/chardev.ko /home/qkmei/Code/KernelKraft/lab8/chardev.o /home/qkmei/Code/KernelKraft/lab8/chardev.mod.o;  true
