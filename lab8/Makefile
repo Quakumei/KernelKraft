@@ -8,6 +8,7 @@ char_dev_reload:
 	sudo rm char_dev
 	sudo mknod char_dev c 100 0
 	sudo chmod a+w char_dev
+
 clean:
 	make -C /lib/modules/`uname -r`/build M=`pwd` clean
 
@@ -35,5 +36,11 @@ test:
 	$(info " --- TEST: BACK IO --- ")
 	echo direction back > char_dev
 	cat char_dev
+
+test_individual:
+	make run_ioctl
+
+
+
 run_ioctl:
 	gcc ioctl.c -o ioctl.exe && ./ioctl.exe

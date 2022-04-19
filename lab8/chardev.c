@@ -67,6 +67,8 @@ static int device_release(struct inode *inode, struct file *file)
 	module_put(THIS_MODULE);
 	return SUCCESS;
 }
+
+
 /*
  * This function is called whenever a process which has already opened the
  * device file attempts to read from it.
@@ -292,6 +294,8 @@ struct file_operations Fops = {
 	.open = device_open,
 	.release = device_release, /* a.k.a. close */
 };
+
+
 /*
  * Initialize the module - Register the character device
  */
