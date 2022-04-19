@@ -1,0 +1,70 @@
+BatchTest1
+Intel Xeon E5-2666 v3 testing with a HUANANZHI X99-BD4 (5.11 BIOS) and NVIDIA GeForce GTX 1070 8GB on Ubuntu 20.04 via the Phoronix Test Suite.
+
+ ,,"Batch1"
+Processor,,Intel Xeon E5-2666 v3 @ 3.50GHz (10 Cores / 20 Threads)
+Motherboard,,HUANANZHI X99-BD4 (5.11 BIOS)
+Chipset,,Intel Xeon E7 v3/Xeon
+Memory,,64GB
+Disk,,1000GB Seagate ST1000DM003-1ER1 + 240GB CT240BX500SSD1
+Graphics,,NVIDIA GeForce GTX 1070 8GB
+Audio,,Realtek ALC662 rev1
+Monitor,,PL2377
+Network,,Realtek RTL8111/8168/8411
+OS,,Ubuntu 20.04
+Kernel,,5.13.0-35-generic (x86_64)
+Desktop,,GNOME Shell 3.36.9
+Display Server,,X Server 1.20.13
+Display Driver,,NVIDIA 470.103.01
+OpenGL,,4.6.0
+OpenCL,,OpenCL 3.0 CUDA 11.4.189
+Vulkan,,1.2.175
+Compiler,,GCC 9.4.0
+File-System,,ext4
+Screen Resolution,,3840x1080
+
+ ,,"Batch1"
+"Flexible IO Tester - Type: Random Read - Engine: Sync - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (MB/s)",HIB,217
+"Flexible IO Tester - Type: Random Read - Engine: Sync - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (IOPS)",HIB,434
+"Flexible IO Tester - Type: Random Write - Engine: Sync - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (MB/s)",HIB,145
+"Flexible IO Tester - Type: Random Write - Engine: Sync - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (IOPS)",HIB,289
+"Flexible IO Tester - Type: Random Read - Engine: IO_uring - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (MB/s)",HIB,370
+"Flexible IO Tester - Type: Random Read - Engine: IO_uring - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (IOPS)",HIB,736
+"Flexible IO Tester - Type: Sequential Read - Engine: Sync - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (MB/s)",HIB,294
+"Flexible IO Tester - Type: Sequential Read - Engine: Sync - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (IOPS)",HIB,588
+"Flexible IO Tester - Type: Random Read - Engine: Linux AIO - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (MB/s)",HIB,201
+"Flexible IO Tester - Type: Random Read - Engine: Linux AIO - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (IOPS)",HIB,398
+"Flexible IO Tester - Type: Random Read - Engine: POSIX AIO - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (MB/s)",HIB,215
+"Flexible IO Tester - Type: Random Read - Engine: POSIX AIO - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (IOPS)",HIB,426
+"Flexible IO Tester - Type: Random Write - Engine: IO_uring - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (MB/s)",HIB,141
+"Flexible IO Tester - Type: Random Write - Engine: IO_uring - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (IOPS)",HIB,278
+"Flexible IO Tester - Type: Sequential Write - Engine: Sync - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (MB/s)",HIB,116.7
+"Flexible IO Tester - Type: Sequential Write - Engine: Sync - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (IOPS)",HIB,233
+"Flexible IO Tester - Type: Random Write - Engine: Linux AIO - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (MB/s)",HIB,120.6
+"Flexible IO Tester - Type: Random Write - Engine: Linux AIO - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (IOPS)",HIB,238
+"Flexible IO Tester - Type: Random Write - Engine: POSIX AIO - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (MB/s)",HIB,130.2
+"Flexible IO Tester - Type: Random Write - Engine: POSIX AIO - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (IOPS)",HIB,257
+"Flexible IO Tester - Type: Sequential Read - Engine: IO_uring - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (MB/s)",HIB,447
+"Flexible IO Tester - Type: Sequential Read - Engine: IO_uring - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (IOPS)",HIB,891
+"Flexible IO Tester - Type: Sequential Read - Engine: Linux AIO - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (MB/s)",HIB,312
+"Flexible IO Tester - Type: Sequential Read - Engine: Linux AIO - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (IOPS)",HIB,620
+"Flexible IO Tester - Type: Sequential Read - Engine: POSIX AIO - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (MB/s)",HIB,330
+"Flexible IO Tester - Type: Sequential Read - Engine: POSIX AIO - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (IOPS)",HIB,656
+"Flexible IO Tester - Type: Sequential Write - Engine: IO_uring - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (MB/s)",HIB,133.4
+"Flexible IO Tester - Type: Sequential Write - Engine: IO_uring - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (IOPS)",HIB,264
+"Flexible IO Tester - Type: Sequential Write - Engine: Linux AIO - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (MB/s)",HIB,125.8
+"Flexible IO Tester - Type: Sequential Write - Engine: Linux AIO - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (IOPS)",HIB,248
+"Flexible IO Tester - Type: Sequential Write - Engine: POSIX AIO - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (MB/s)",HIB,114.9
+"Flexible IO Tester - Type: Sequential Write - Engine: POSIX AIO - Buffered: Yes - Direct: No - Block Size: 512KB - Disk Target: Default Test Directory (IOPS)",HIB,227
+"GLmark2 - Resolution: 1920 x 1080 (Score)",HIB,
+"Stream - Type: Copy (MB/s)",HIB,50796.9
+"Stream - Type: Scale (MB/s)",HIB,35991.8
+"Stream - Type: Triad (MB/s)",HIB,39905.4
+"Stream - Type: Add (MB/s)",HIB,39684.4
+"fast-cli - Internet Download Speed (Mbit/s)",HIB,93
+"fast-cli - Internet Upload Speed (Mbit/s)",HIB,85
+"fast-cli - Internet Latency (ms)",LIB,13
+"fast-cli - Internet Loaded Latency (Bufferbloat) (ms)",LIB,34
+"7-Zip Compression - Test: Compression Rating (MIPS)",HIB,54304
+"7-Zip Compression - Test: Decompression Rating (MIPS)",HIB,41637
+
