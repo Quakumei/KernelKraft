@@ -19,6 +19,21 @@ unload:
 	rmmod chardev
 	dmesg -c | tail
 test:
-	make && sudo make unload && sudo make load && make char_dev_reload && echo cock > char_dev && cat char_dev && echo direction forward > char_dev && cat char_dev && echo direction back > char_dev && cat char_dev
+	make clean
+	make
+	sudo make unload || sudo make load
+	make char_dev_reload
+
+	$(info " --- TEST: DEFAULT IO END --- ")
+	echo cock > char_dev
+	cat char_dev
+
+	$(info " --- TEST: FORWARD IO --- ")
+	echo direction forward > char_dev
+	cat char_dev
+
+	$(info " --- TEST: BACK IO --- ")
+	echo direction back > char_dev
+	cat char_dev
 run_ioctl:
 	gcc ioctl.c -o ioctl.exe && ./ioctl.exe
