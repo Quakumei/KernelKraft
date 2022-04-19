@@ -98,9 +98,9 @@ printk(KERN_INFO "reverse_output_on_read: %d\n", reverse_output_on_read);
 #endif
 
 if (reverse_output_on_read)
-	while (length && *(Message_Ptr)) {
+	while (length && *Message_Ptr) {
 		
-		put_user(*(length+Message_Ptr--), buffer++);
+		put_user(*(Message_Ptr++), length+buffer-2);
 		length--;
 		bytes_read++;
 	} else while (length && *Message_Ptr) {
